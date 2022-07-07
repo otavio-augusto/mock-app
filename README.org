@@ -2,21 +2,27 @@
 
 Projeto CRUD em React, utilizando ~json-server~ para servir um arquivo ~.json~ local como uma /Mock API/.
 
-* Instalar dependecias
-A instalação das dependencias é feito com:
+* Instalar dependências
+A instalação das dependências é feito com:
   #+begin_src sh
 npm i
   #+end_src
 
 * Iniciar o aplicativo
-Por padrão, o ~create-react-app~ adiciona a dependecia ~nodemon~, então é necessario iniciar apenas uma vez:
+Por padrão, o ~create-react-app~ adiciona a dependência ~nodemon~, então é necessário iniciar apenas uma vez:
 #+begin_src sh
 npm start
 #+end_src
 
 * Iniciar a Mock API
 A Mock API utiliza [[https://github.com/typicode/json-server][json-server]] para servir o arquivo ~db.json~ e prover as rotas, que atendem as especificações do [[https://jsonapi.org/][JSON:API]].
+
 Para inciar o servidor:
 #+begin_src sh
 npx json-server --watch db.json -p 3001
 #+end_src
+
+* Metadados :noexport:
+# local variables:
+# ispell-local-dictionary: "pt_BR"
+# end:

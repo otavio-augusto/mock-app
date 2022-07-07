@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Adebaldo",
+      "cpf": 123456700
+    },
+    {
+      "id": 2,
+      "name": "Bdebaldo",
+      "cpf": 123456701
+    },
+    {
+      "id": 3,
+      "name": "Cdebaldo",
+      "cpf": 123456702
+    },
+    {
+      "id": 4,
+      "name": "Ddebaldo",
+      "cpf": 123456703
+    },
+    {
+      "id": 5,
+      "name": "Edebaldo",
+      "cpf": 123456704
+    },
+    {
+      "id": "6",
+      "name": "Fdebaldo",
+      "cpf": "123456705"
+    }
+  ]
+}
