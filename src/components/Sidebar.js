@@ -50,10 +50,8 @@ function postUser(update) {
   console.log(isPostOrPatch())
   isPostOrPatch().then(
     isPost => isPost ?
-      setUser(content, userId) :
-      patchUser(content, userId)
-  ).then(
-    update()
+      setUser(content, userId).then(update()) :
+      patchUser(content, userId).then(update())
   )
 }
 
