@@ -1,13 +1,93 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  /*
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   */
+  background-color: #2e3440;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.bar--title, .sidebar--title, .table--title{
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 10px;
+  color: #eceff4;
+  background-color: #3b4252;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation--options {
+  margin-top: auto;
+  list-style: none;
+  display: flex;
+}
+
+.navigation--options > li{
+  padding-right: 15px;
+  color: #eceff4;
+}
+
+.bar {
+  background-color: #3b4252;
+}
+
+.link,
+.link:hover,
+.link:visited,
+.link:active {
+  color: #eceff4;
+  text-decoration: none;
+  height: fit;
+}
+
+
+.link:hover{
+  color: #5E81AC;
+}
+
+.table {
+  width: 100%;
+}
+
+.table--action {
+  width: 40px;
+}
+
+.table--colID {
+  width: 40px;
+}
+
+.form--container{
+  background-color: #3b4252;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.sidebar--header{
+  display: flex;
+  background-color: #3b4252;
+  height: inherit;
+}
+
+.sidebar--input--id{
+  width: 40px;
+}
+
+.sidebar--input--id, .sidebar--input--name, .sidebar--input--cpf{
+
 }

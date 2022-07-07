@@ -1,0 +1,8 @@
+#+title: README
+
+Projeto CRUD em React, utilizando ~json-server~ para servir um arquivo ~.json~ local como uma /Mock API/.
+
+- Instalar dependencias:
+  #+begin_src sh
+npm i
+  #+end_src
