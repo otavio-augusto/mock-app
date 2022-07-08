@@ -1,5 +1,5 @@
 const host = "localhost"
-const port = 3001
+const port = 3002
 
 export async function getUser(query) {
   const request = await fetch(`http://${host}:${port}/${query}`);
@@ -18,7 +18,7 @@ export function setUser(json) {
     redirect: 'follow'
   };
 
-  fetch(`http://${host}:${port}/users`, requestOptions)
+  return fetch(`http://${host}:${port}/users`, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
@@ -30,7 +30,7 @@ export async function removeUser(id) {
     redirect: 'follow'
   };
 
-  return fetch(`http://localhost:3001/users/${id}`, requestOptions)
+  return fetch(`http://${host}:${port}/users/${id}`, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));

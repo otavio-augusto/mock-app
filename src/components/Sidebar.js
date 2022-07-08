@@ -6,7 +6,6 @@ import { setUser, getUser, patchUser } from '../api/user'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-
 function Sidebar(props) {
   const element =
     <>
