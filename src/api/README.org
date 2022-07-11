@@ -1,0 +1,131 @@
+#+title: API, suas rotas e como funcionam
+
+* Definindo ~host~ e ~port~
+Idealmente, o aplicativo utilizara a porta 3000, e a API utilizara a porta 3002, mas caso sejá necessario alterar esse comportamente, pode ser feito aqui:
+#+begin_src js :tangle user.js
+const host = "localhost"
+const port = 3001
+#+end_src
+
+* Definindo as rotas
+Serão necessarias quatro rotas diferentes: GET, POST, PATCH e REMOVE, cada uma delas corresponde a uma opção do CRUD.
+| CRUD   | Rotas  |
+|--------+--------|
+| Create | POST   |
+| Read   | GET    |
+| Update | PATCH  |
+| Remove | DELETE |
+
+Todas as rotas acima deve ser definidas com o recurso ~user~ em mente, pois este é o unico recurso que o projeto utiliza.
+
+**   Create ou POST
+Esta rota é responsavel por criar um novo usuário, enviado os dados em uma /string/ no formato ~json~:
+
+** Read ou GET
+Esta rota é responsavel por retornar os usuários em um formato ~.json~
+#+begin_src restclient :no-eval :exports both :results json
+GET http://localhost:3002/users
+#+end_src
+#+RESULTS:
+#+BEGIN_SRC js
+[
+  {
+    "id": 1,
+    "name": "Adebaldo",
+    "cpf": "123456700"
+  },
+  {
+    "id": 2,
+    "name": "Bdebaldo",
+    "cpf": 123456701
+  },
+  {
+    "id": 3,
+    "name": "Cdebaldo",
+    "cpf": 123456702
+  },
+  {
+    "id": 4,
+    "name": "Ddebaldo",
+    "cpf": 123456703
+  },
+  {
+    "id": 5,
+    "name": "Edebaldo",
+    "cpf": 123456704
+  },
+  {
+    "id": "6",
+    "name": "Fdebaldo",
+    "cpf": "123456705"
+  },
+  {
+    "id": "7",
+    "name": "Gdebaldo",
+    "cpf": "123456706"
+  },
+  {
+    "id": "8",
+    "name": "Hdeblado",
+    "cpf": "123456707"
+  },
+  {
+    "id": "9",
+    "name": "Idebaldo",
+    "cpf": "123456708"
+  }
+]
+// GET http://localhost:3002/users
+// HTTP/1.1 200 OK
+// X-Powered-By: Express
+// Vary: Origin, Accept-Encoding
+// Access-Control-Allow-Credentials: true
+// Cache-Control: no-cache
+// Pragma: no-cache
+// Expires: -1
+// X-Content-Type-Options: nosniff
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 623
+// ETag: W/"26f-8RlKS/022XsQGW1E0O43UpZ6rNo"
+// Date: Fri, 08 Jul 2022 12:19:57 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.008041s
+#+END_SRC
+Podemos também aplicar filtros nesta rota, para retornar apenas um usuário:
+#+begin_src restclient :no-eval :exports both :results json
+GET http://localhost:3002/users/1
+#+end_src
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "id": 1,
+  "name": "Adebaldo",
+  "cpf": "123456700"
+}
+// GET http://localhost:3002/users/1
+// HTTP/1.1 200 OK
+// X-Powered-By: Express
+// Vary: Origin, Accept-Encoding
+// Access-Control-Allow-Credentials: true
+// Cache-Control: no-cache
+// Pragma: no-cache
+// Expires: -1
+// X-Content-Type-Options: nosniff
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 57
+// ETag: W/"39-d/hCD/QKGGQD9k/DQUYNyDapdss"
+// Date: Fri, 08 Jul 2022 12:34:19 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.010180s
+#+END_SRC
+
+Levando estas rotas para o javascript, temos:
+#+begin_src js :no-eval :tangle user.js
+export async function getUser(query) {
+  const request = await fetch(`http://${host}:${port}/${query}`);
+  const response = await request.json();
+  return response;
+}
+#+end_src

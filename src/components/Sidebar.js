@@ -1,5 +1,4 @@
 import '../index.css'
-import React, { useContext } from 'react';
 import { setUser, getUser, patchUser } from '../api/user'
 
 //BOOTSTRAP IMPORTS
@@ -46,12 +45,29 @@ function postUser(update) {
     "cpf": userCPF
   });
 
-  console.log(isPostOrPatch())
-  isPostOrPatch().then(
-    isPost => isPost ?
-      setUser(content, userId).then(update()) :
-      patchUser(content, userId).then(update())
-  )
+  sendRequest()
+
+  async function sendRequest() {
+    const isPost = isPostOrPatch()
+    switch (isPost) {
+      case true:
+        await setUser(content, userId); update()
+        break;
+      case false:
+        await patchUser(content, userId); update()
+        break;
+      default:
+        console.log("ERR: ")
+        break;
+    }
+
+  }
+
+  // isPostOrPatch().then(
+  //   isPost => isPost ?
+  //     setUser(content, userId).then(update()) :
+  //     patchUser(content, userId).then(update())
+  // )
 }
 
 export default Sidebar
