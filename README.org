@@ -22,7 +22,7 @@ Para inciar o servidor:
 npx json-server --watch db.json -p 3001
 #+end_src
 
-* Metadados :noexport:
+* COMMENT Metadados
 # local variables:
 # ispell-local-dictionary: "pt_BR"
 # end:
