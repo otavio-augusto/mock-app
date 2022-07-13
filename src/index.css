@@ -1,4 +1,7 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+html, body, #root{
+  height: 95%;
+}
 
 body {
   margin: 0;
@@ -97,18 +100,16 @@ code {
   padding-left: 15px;
 }
 
-.cadastro--form{
+.cadastro--form, .edit--form{
   padding:15px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  height: inherit;
 }
 
-.form-label{
-}
-
-.form-control, .input-group{
-  width: 50%
+.cadastro--form, edit--form{
+  padding-top: 25px;
 }

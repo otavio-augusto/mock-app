@@ -14,6 +14,7 @@ export function AddUsers() {
   const handleSubmit = e => {
     e.preventDefault()
     addNewUser()
+    forceUpdate()
   }
 
   const element =

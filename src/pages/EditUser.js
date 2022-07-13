@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 
 import { getUser, patchUser } from '../api/user'
 
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -36,9 +35,8 @@ function EditUser() {
     getOldData(id)
   }, [getOldData, id]); // <- Condições para atualização
 
-
   const element =
-    <Form className='cadastro--form' onSubmit={handleSubmit}>
+    <Form className='edit--form' onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Label>ID do Cliente</Form.Label>
         <Form.Control type="number" disabled placeholder='#' id='editID' />
