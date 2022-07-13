@@ -17,7 +17,7 @@ export function Table() {
 
   const element =
     <div>
-      <ReactTable striped bordered hover variant="dark">
+      <ReactTable striped bordered hover responsive>
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -36,22 +36,9 @@ export function Table() {
     updateQuery()
     function updateQuery() {
       getUser(query).then(
-        data => setContent(createRows(data, editRow, removeRow))
+        data => setContent(createRows(data, removeRow))
       )
     }
-
-    const editRow = event => {
-      const element = event.currentTarget.parentNode;
-
-      document.getElementById('ID').value =
-        element.children[0].innerText
-      document.getElementById('NAME').value =
-        element.children[1].innerText
-      document.getElementById('CPF').value =
-        element.children[2].innerText
-
-      forceUpdate()
-    };
 
     const removeRow = async event => {
       const element = event.currentTarget.parentNode;
@@ -63,7 +50,7 @@ export function Table() {
   return element
 }
 
-function createRows(data, editRow, removeRow) {
+function createRows(data, removeRow) {
   const rows = data.map((item) =>
     <tr key={item.id} id={item.id}>
       <th className='table--colID'>{item.id}</th>

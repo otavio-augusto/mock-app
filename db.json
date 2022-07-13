@@ -7,8 +7,8 @@
     },
     {
       "id": 2,
-      "name": "Bdebaldo",
-      "cpf": 123456701
+      "name": "Bdebaldo Junior",
+      "cpf": "123456701"
     },
     {
       "id": 3,
@@ -33,6 +33,11 @@
     {
       "id": "7",
       "name": "Gdebaldo",
+      "cpf": "123456706"
+    },
+    {
+      "id": "8",
+      "name": "Hdebaldo",
       "cpf": "123456706"
     }
   ]

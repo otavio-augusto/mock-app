@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import { getUser } from '../api/user'
+import { getUser, setUser } from '../api/user'
 
 export function AddUsers() {
   const [isReadyToUpdate, setIsReadyToUpdate] = useState(false);
@@ -13,7 +13,7 @@ export function AddUsers() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    forceUpdate()
+    addNewUser()
   }
 
   const element =
@@ -39,11 +39,24 @@ export function AddUsers() {
     setUserID()
     async function setUserID() {
       const result = await getUser('users')
-      document.getElementById('cadastroID').value = result.length
+      document.getElementById('cadastroID').value = result.length + 1
     };
   }, [isReadyToUpdate]); // <- Condições para atualização
 
   return element
+}
+
+async function addNewUser() {
+  const newUserId = document.getElementById('cadastroID').value
+  const newUserName = document.getElementById('cadastroNome').value
+  const newUserCPF = document.getElementById('cadastroCPF').value
+  const content = JSON.stringify({
+    "id": newUserId,
+    "name": newUserName,
+    "cpf": newUserCPF
+  });
+  await setUser(content)
+  alert('Novo usuário cadastrado!')
 }
 
 export default AddUsers

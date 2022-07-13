@@ -38,25 +38,23 @@ function EditUser() {
 
 
   const element =
-    <>
-      <Form className='cadastro--form' onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>ID do Cliente</Form.Label>
-          <Form.Control type="number" disabled placeholder='#' id='editID' />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Nome</Form.Label>
-          <Form.Control type="text" id='editName' />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>CPF</Form.Label>
-          <Form.Control type="text" id='editCPF' />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Cadastrar
-        </Button>
-      </Form>
-    </>
+    <Form className='cadastro--form' onSubmit={handleSubmit}>
+      <Form.Group className="mb-3">
+        <Form.Label>ID do Cliente</Form.Label>
+        <Form.Control type="number" disabled placeholder='#' id='editID' />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>Nome</Form.Label>
+        <Form.Control type="text" id='editName' />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>CPF</Form.Label>
+        <Form.Control type="text" id='editCPF' />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Salvar
+      </Button>
+    </Form>
   return element
 }
 

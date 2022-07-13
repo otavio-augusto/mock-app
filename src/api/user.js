@@ -36,7 +36,7 @@ export async function removeUser(id) {
     .catch(error => console.log('error', error));
 }
 
-export function patchUser(json, id) {
+export async function patchUser(json, id) {
   var headers = new Headers();
   headers.append("Content-Type", "application/json");
 
@@ -46,8 +46,11 @@ export function patchUser(json, id) {
     body: json,
     redirect: 'follow'
   };
-  return fetch(`http://${host}:${port}/users/${id}`, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  try {
+    const response = await fetch(`http://${host}:${port}/users/${id}`, requestOptions);
+    const result_1 = await response.text();
+    return console.log(result_1);
+  } catch (error) {
+    return console.log('error', error);
+  }
 }
