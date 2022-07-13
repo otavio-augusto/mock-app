@@ -1,22 +1,40 @@
 import '../index.css'
-import React from 'react';
+import React, { useContext } from 'react';
 
 //BOOTSTRAP IMPORTS
+import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function Search(props) {
+import { pageContext } from './Page'
+
+function Search() {
+  const { setQuery } = useContext(pageContext)
+  const handleSubmit = event => {
+    event.preventDefault();
+    updateQuery(setQuery)
+  }
+
   const element =
-    <Form>
-      <h5 className='table--title'>Pesquisar</h5>
-      <Form.Group className="form--container" >
-        <Form.Control type="text" placeholder="CPF" id="SearchCPF" />
-        <Button variant="primary" onClick={props.function} >
-          Pesquisar
+    <Form onSubmit={handleSubmit}>
+      <InputGroup>
+        <InputGroup.Text id="btnGroupAddon2">CPF</InputGroup.Text>
+        <Form.Control id="searchTerm" type="text" />
+        <Button id="searchSubmit" type="submit">
+          <i className="fa fa-search"></i>
         </Button>
-      </Form.Group>
-    </Form>
+      </InputGroup >
+    </Form >
+
   return element
+}
+
+
+function updateQuery(setQuery) {
+  const term = document.getElementById('searchTerm').value
+  term.trim() === "" ?
+    setQuery('users') :
+    setQuery(`users/?cpf=${term}`)
 }
 
 export default Search

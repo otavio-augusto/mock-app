@@ -1,51 +1,45 @@
 import '../index.css'
 import React from 'react';
-import { getUser } from '../api/user'
+
+//COMPONENT IMPORTS
+import Search from './Search'
 
 //BOOTSTRAP IMPORTS
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 
-function Title() {
-  const element =
-    <div>
-      <h4 className="bar--title">Aplicativo CRUD Exemplo</h4>
-    </div>
-  return element
-}
-
-function Navigation() {
-  const element =
-    <nav className='navigation'>
-      <Title />
-      <ul className='navigation--options'>
-        <li>
-          <Button variant="primary" onClick={prepareToCreateUser}>
-            Novo Usuário
-          </Button>
-        </li>
-      </ul>
-    </nav>
-  return element
-}
-
+import { Link } from "react-router-dom";
 function TitleBar() {
   const element =
-    <div className="bar">
-      <Navigation />
-    </div>
+    <Navbar expand="lg" bg="dark" variant="dark">
+      <Container fluid>
+        <Link to='/'>
+          <Navbar.Brand>
+            <Button variant='dark'>
+              CRUD em ReactJS
+            </Button>
+          </Navbar.Brand>
+        </Link>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Link to='/addUsers'>
+              <Button variant="dark">
+                Novo Usuário
+              </Button>
+            </Link>
+          </Nav>
+          <Search />
+        </Navbar.Collapse>
+      </Container>
+    </Navbar >
   return element
-}
-
-function prepareToCreateUser() {
-  getUser("users").then(
-    data => prepareFields(data)
-  )
-}
-
-function prepareFields(data) {
-  document.getElementById("ID").value = data.length + 1
-  document.getElementById("NAME").value = ""
-  document.getElementById("CPF").value = ""
 }
 
 export default TitleBar;

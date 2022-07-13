@@ -40,7 +40,7 @@ code {
   color: #eceff4;
 }
 
-.bar {
+.bar{
   background-color: #3b4252;
 }
 
@@ -63,7 +63,7 @@ code {
 }
 
 .table--action {
-  width: 40px;
+  width: 30px;
 }
 
 .table--colID {
@@ -90,4 +90,27 @@ code {
 
 .sidebar--input--id, .sidebar--input--name, .sidebar--input--cpf{
 
+}
+
+.input-group{
+  width: 50%;
+  padding-left: 15px;
+}
+
+.cadastro--form{
+  padding:15px;
+  background-color: #212529;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-label{
+  color: #ffffff
+}
+
+.form-control, .input-group{
+  width: 50%
 }
