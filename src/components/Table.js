@@ -8,6 +8,9 @@ import ReactTable from 'react-bootstrap/Table';
 //IMPORT CONTEXT
 import { pageContext } from './Page'
 
+
+import { Link } from "react-router-dom";
+
 export function Table() {
   const { forceUpdate, query } = useContext(pageContext)
   const [content, setContent] = useState([]);
@@ -66,8 +69,10 @@ function createRows(data, editRow, removeRow) {
       <th className='table--colID'>{item.id}</th>
       <th className='table--colNAME'>{item.name}</th>
       <th className='table--colCPF'>{item.cpf}</th>
-      <th className='table--action' onClick={editRow}>
-        <i className="fa fa-pencil-square-o"></i>
+      <th className='table--action'>
+        <Link to={`edit/${item.id}`}>
+          <i className="fa fa-pencil-square-o"></i>
+        </Link>
       </th>
       <th className='table--action' onClick={removeRow}>
         <i className="fa fa-trash"></i>

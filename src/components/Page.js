@@ -7,6 +7,7 @@ import Table from './Table';
 
 //ROUTING IMPORTS
 import AddUsers from '../pages/NewUser'
+import EditUser from '../pages/EditUser'
 
 const pageContext = createContext()
 export function Page() {
@@ -23,6 +24,7 @@ export function Page() {
         <Routes>
           <Route exact path='/' element={<Table />} />
           <Route exact path='addUsers' element={<AddUsers />} />
+          <Route exact path='edit/:id' element={<EditUser />} />
         </Routes>
       </pageContext.Provider>
     </BrowserRouter >

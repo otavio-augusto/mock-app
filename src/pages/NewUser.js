@@ -24,11 +24,11 @@ export function AddUsers() {
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Nome</Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text" id='cadastroNome' />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>CPF</Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text" id='cadastroCPF' />
       </Form.Group>
       <Button variant="primary" type="submit">
         Cadastrar
@@ -41,7 +41,7 @@ export function AddUsers() {
       const result = await getUser('users')
       document.getElementById('cadastroID').value = result.length
     };
-  }, []); // <- Condições para atualização
+  }, [isReadyToUpdate]); // <- Condições para atualização
 
   return element
 }
