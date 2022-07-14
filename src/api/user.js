@@ -1,5 +1,5 @@
 const host = "localhost"
-const port = 3002
+const port = 3001
 
 export async function getUser(query) {
   const request = await fetch(`http://${host}:${port}/${query}`);
