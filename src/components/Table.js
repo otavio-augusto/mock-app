@@ -17,6 +17,7 @@ export function Table() {
 
   const element =
     <div>
+      <h5 className='table--title'>Gestão de Usuários PF</h5>
       <ReactTable striped bordered hover responsive>
         <thead>
           <tr>

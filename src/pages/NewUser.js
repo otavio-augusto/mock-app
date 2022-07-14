@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 //BOOTSTRAP
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 
 import { getUser, setUser } from '../api/user'
@@ -19,6 +20,7 @@ export function AddUsers() {
 
   const element =
     <Form className='cadastro--form' onSubmit={handleSubmit}>
+      <h4 className='cadastro--title'>Cadastro de Clientes</h4>
       <Form.Group className="mb-3">
         <Form.Label>ID do Cliente</Form.Label>
         <Form.Control type="number" disabled placeholder='#' id='cadastroID' />
@@ -31,9 +33,11 @@ export function AddUsers() {
         <Form.Label>CPF</Form.Label>
         <Form.Control type="text" id='cadastroCPF' />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Cadastrar
-      </Button>
+      <ButtonGroup>
+        <Button variant="primary" type="submit">Cadastrar</Button>
+        <Button variant="danger" onClick={clearFields}>Limpar</Button>
+      </ButtonGroup>
+
     </Form>
 
   useEffect(() => {
@@ -45,6 +49,11 @@ export function AddUsers() {
   }, [isReadyToUpdate]); // <- Condições para atualização
 
   return element
+}
+
+function clearFields() {
+  document.getElementById('cadastroNome').value = ""
+  document.getElementById('cadastroCPF').value = ""
 }
 
 async function addNewUser() {

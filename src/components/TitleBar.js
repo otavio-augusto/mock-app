@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 function TitleBar() {
   const element =
-    <Navbar expand="lg" bg="dark" variant="dark">
+    <Navbar expand="lg" bg="dark" variant="dark" className='navbar'>
       <Container fluid>
         <Link to='/'>
           <Navbar.Brand>

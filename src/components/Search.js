@@ -16,7 +16,7 @@ function Search() {
   }
 
   const element =
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='search--form'>
       <InputGroup>
         <InputGroup.Text id="btnGroupAddon2">CPF</InputGroup.Text>
         <Form.Control id="searchTerm" type="text" />

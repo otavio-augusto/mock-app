@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { getUser, patchUser } from '../api/user'
 
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 
 function EditUser() {
@@ -37,6 +38,7 @@ function EditUser() {
 
   const element =
     <Form className='edit--form' onSubmit={handleSubmit}>
+      <h4 className='edit--title'>Editar Dados</h4>
       <Form.Group className="mb-3">
         <Form.Label>ID do Cliente</Form.Label>
         <Form.Control type="number" disabled placeholder='#' id='editID' />
@@ -49,11 +51,17 @@ function EditUser() {
         <Form.Label>CPF</Form.Label>
         <Form.Control type="text" id='editCPF' />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Salvar
-      </Button>
+      <ButtonGroup>
+        <Button variant="primary" type="submit">Salvar</Button>
+        <Button variant="danger" onClick={clearFields}>Limpar</Button>
+      </ButtonGroup>
     </Form>
   return element
+}
+
+function clearFields() {
+  document.getElementById('editName').value = ""
+  document.getElementById('editCPF').value = ""
 }
 
 export default EditUser

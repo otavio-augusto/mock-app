@@ -1,6 +1,16 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
-html, body, #root{
-  height: 95%;
+
+html, body, #root, .App {
+  min-height: 100vh;
+}
+
+#root{
+  display:flex;
+  flex-direction: column;
+}
+
+.cadastro--form, edit--form{
+  flex-grow: 1;
 }
 
 body {
@@ -67,6 +77,7 @@ code {
 
 .table--action {
   width: 30px;
+  cursor: pointer;
 }
 
 .table--colID {
@@ -110,6 +121,16 @@ code {
   height: inherit;
 }
 
-.cadastro--form, edit--form{
-  padding-top: 25px;
+
+.cadastro--title, .edit--title{
+  padding: 10px;
+}
+
+.search--form{
+  margin: unset;
+  padding: 8px;
+}
+
+.navbar{
+  padding: unset !important;
 }
