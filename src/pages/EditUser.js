@@ -37,25 +37,27 @@ function EditUser() {
   }, [getOldData, id]); // <- Condições para atualização
 
   const element =
-    <Form className='edit--form' onSubmit={handleSubmit}>
-      <h4 className='edit--title'>Editar Dados</h4>
-      <Form.Group className="mb-3">
-        <Form.Label>ID do Cliente</Form.Label>
-        <Form.Control type="number" disabled placeholder='#' id='editID' />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Nome</Form.Label>
-        <Form.Control type="text" id='editName' />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>CPF</Form.Label>
-        <Form.Control type="text" id='editCPF' />
-      </Form.Group>
-      <ButtonGroup>
-        <Button variant="primary" type="submit">Salvar</Button>
-        <Button variant="danger" onClick={clearFields}>Limpar</Button>
-      </ButtonGroup>
-    </Form>
+    <div className='edit--div'>
+      <Form className='edit--form' onSubmit={handleSubmit}>
+        <h4 className='edit--title'>Editar Dados</h4>
+        <Form.Group className="mb-3">
+          <Form.Label>ID do Cliente</Form.Label>
+          <Form.Control type="number" disabled placeholder='#' id='editID' />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Nome</Form.Label>
+          <Form.Control type="text" id='editName' />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>CPF</Form.Label>
+          <Form.Control type="text" id='editCPF' />
+        </Form.Group>
+        <ButtonGroup>
+          <Button variant="primary" type="submit">Salvar</Button>
+          <Button variant="danger" onClick={clearFields}>Limpar</Button>
+        </ButtonGroup>
+      </Form>
+    </div>
   return element
 }
 

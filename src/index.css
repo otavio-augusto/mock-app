@@ -7,10 +7,34 @@ html, body, #root, .App {
 #root{
   display:flex;
   flex-direction: column;
+  background: url(https://media.discordapp.net/attachments/989253918158631022/996104377263722617/unknown.png?width=1008&height=285);
+  background-size: cover;
+  background-color: currentColor;
 }
 
-.cadastro--form, edit--form{
+.cadastro--div, .edit--div{
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.cadastro--form, .edit--form{
+  padding: 20px;
+  padding-bottom: 35px !important;
+  background-color: #2e3440;
+}
+
+.edit--form{
+  padding-left:35px !important;
+  padding-right: 35px !important;
+}
+
+.cadastro--title, .edit--title, .form-label{
+  color: #eceff4;
 }
 
 body {
@@ -26,6 +50,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.table{
+  background-color: #ffff;
 }
 
 .bar--title, .sidebar--title, .table--title{

@@ -19,26 +19,27 @@ export function AddUsers() {
   }
 
   const element =
-    <Form className='cadastro--form' onSubmit={handleSubmit}>
-      <h4 className='cadastro--title'>Cadastro de Clientes</h4>
-      <Form.Group className="mb-3">
-        <Form.Label>ID do Cliente</Form.Label>
-        <Form.Control type="number" disabled placeholder='#' id='cadastroID' />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Nome</Form.Label>
-        <Form.Control type="text" id='cadastroNome' />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>CPF</Form.Label>
-        <Form.Control type="text" id='cadastroCPF' />
-      </Form.Group>
-      <ButtonGroup>
-        <Button variant="primary" type="submit">Cadastrar</Button>
-        <Button variant="danger" onClick={clearFields}>Limpar</Button>
-      </ButtonGroup>
-
-    </Form>
+    <div className='cadastro--div'>
+      <Form className='cadastro--form' onSubmit={handleSubmit}>
+        <h4 className='cadastro--title'>Cadastro de Clientes</h4>
+        <Form.Group className="mb-3">
+          <Form.Label>ID do Cliente</Form.Label>
+          <Form.Control type="number" disabled placeholder='#' id='cadastroID' />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Nome</Form.Label>
+          <Form.Control type="text" id='cadastroNome' />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>CPF</Form.Label>
+          <Form.Control type="text" id='cadastroCPF' />
+        </Form.Group>
+        <ButtonGroup>
+          <Button variant="primary" type="submit">Cadastrar</Button>
+          <Button variant="danger" onClick={clearFields}>Limpar</Button>
+        </ButtonGroup>
+      </Form>
+    </div>
 
   useEffect(() => {
     setUserID()
