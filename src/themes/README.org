@@ -1,0 +1,90 @@
+#+title: Readme
+Os temas são um recurso armazenado na API feita com o ~json-server~, e por isso pode ser manipulada facilmente.
+
+A estrutura de um tema é:
+
+#+begin_src json
+{
+    "id": 1,
+    "primary": "#00000",
+    "secondary": "#000000",
+    "alert": "#00000"
+}
+#+end_src
+
+Para criar um tema podemos usar:
+#+begin_src restclient :exports code :noeval
+POST http://localhost:3001/themes
+Content-Type: application/json
+
+{
+    "id": 3,
+    "primary": "#00000",
+    "secondary": "#000000",
+    "alert": "#00000"
+}
+#+end_src
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "id": 3,
+  "primary": "#00000",
+  "secondary": "#000000",
+  "alert": "#00000"
+}
+// POST http://localhost:3001/themes
+// HTTP/1.1 201 Created
+// X-Powered-By: Express
+// Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+// Access-Control-Allow-Credentials: true
+// Cache-Control: no-cache
+// Pragma: no-cache
+// Expires: -1
+// Access-Control-Expose-Headers: Location
+// Location: http://localhost:3001/themes/3
+// X-Content-Type-Options: nosniff
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 83
+// ETag: W/"53-YOPg4OiVD90hB6PMQYWpepdaVq8"
+// Date: Wed, 20 Jul 2022 19:16:55 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.037373s
+#+END_SRC
+
+E para recuperar um tema, simplismente:
+#+begin_src restclient :exports code :noeval
+GET http://localhost:3001/themes/1
+#+end_src
+#+RESULTS:
+#+BEGIN_SRC js
+{
+  "id": 1,
+  "primary": "#00000",
+  "secondary": "#000000",
+  "alert": "#00000"
+}
+// GET http://localhost:3001/themes/1
+// HTTP/1.1 200 OK
+// X-Powered-By: Express
+// Vary: Origin, Accept-Encoding
+// Access-Control-Allow-Credentials: true
+// Cache-Control: no-cache
+// Pragma: no-cache
+// Expires: -1
+// X-Content-Type-Options: nosniff
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 83
+// ETag: W/"53-M1R+ZXr6Gb4AWIDfYkJMMpk/yu4"
+// Date: Wed, 20 Jul 2022 19:21:08 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.007849s
+#+END_SRC
+
+* TODO Implementar e Documentar troca de temas
+
+* COMMENT Metadados
+# local variables:
+# ispell-local-dictionary: "pt_BR"
+# end:

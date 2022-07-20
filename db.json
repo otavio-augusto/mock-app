@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Adebaldo Junior",
-      "cpf": "123456700"
+      "cpf": "123456701"
     },
     {
       "id": 2,
@@ -77,23 +77,28 @@
     },
     {
       "id": "16",
-      "name": "a",
-      "cpf": "a"
+      "name": "Zdebaldo",
+      "cpf": "12345678910"
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "primary": "#00000",
+      "secondary": "#000000",
+      "alert": "#00000"
     },
     {
-      "id": "17",
-      "name": "a",
-      "cpf": "a"
+      "id": 2,
+      "primary": "#00000",
+      "secondary": "#000000",
+      "alert": "#00000"
     },
     {
-      "id": "18",
-      "name": "a",
-      "cpf": "a"
-    },
-    {
-      "id": "19",
-      "name": "Ydebalado",
-      "cpf": "12312315412"
+      "id": 3,
+      "primary": "#00000",
+      "secondary": "#000000",
+      "alert": "#00000"
     }
   ]
 }
