@@ -1,5 +1,5 @@
 //REACT IMPORTS
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //COMPONENT IMPORTS
 import TitleBar from './TitleBar';
@@ -9,6 +9,10 @@ import Table from './Table';
 import AddUsers from '../pages/NewUser'
 import EditUser from '../pages/EditUser'
 
+//THEME API IMPORT
+import { getTheme } from '../api/theme'
+const { REACT_APP_THEME_ID } = process.env;
+
 const pageContext = createContext()
 export function Page() {
   //DEFINE ALL USESTATES
@@ -16,6 +20,17 @@ export function Page() {
   const [query, setQuery] = useState("users");
 
   function forceUpdate() { setIsReadyToUpdate(!isReadyToUpdate) }
+
+  useEffect(() => {
+    const switchTheme = async () => {
+      const theme = await getTheme(REACT_APP_THEME_ID)
+      document.documentElement.style.setProperty('--background-color', theme.primary);
+      document.documentElement.style.setProperty('--foreground-color', theme.secondary);
+      document.documentElement.style.setProperty('--button-background', theme.tertiary);
+      document.documentElement.style.setProperty('--alert-color', theme.alert);
+    }
+    switchTheme()
+  }, []);
 
   const element =
     <BrowserRouter>

@@ -1,5 +1,12 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
 
+:root{
+  --background-color: #2e3440;
+  --foreground-color: #eceff4;
+  --button-background: blue;
+  --alert-color: #fb4934;
+}
+
 html, body, #root, .App {
   min-height: 100vh;
 }
@@ -25,7 +32,7 @@ html, body, #root, .App {
 .cadastro--form, .edit--form{
   padding: 20px;
   padding-bottom: 35px !important;
-  background-color: #2e3440;
+  background-color: var(--background-color);
 }
 
 .edit--form{
@@ -34,7 +41,7 @@ html, body, #root, .App {
 }
 
 .cadastro--title, .edit--title, .form-label{
-  color: #eceff4;
+  color: var(--foreground-color);
 }
 
 body {
@@ -44,7 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
    */
-  background-color: #2e3440;
+  background-color: var(--background-color);
 }
 
 code {
@@ -60,8 +67,8 @@ code {
   margin-top: auto;
   margin-bottom: auto;
   padding: 10px;
-  color: #eceff4;
-  background-color: #3b4252;
+  color: var(--foreground-color);
+  background-color: var(--background-color);
 }
 
 .navigation {
@@ -78,18 +85,18 @@ code {
 
 .navigation--options > li{
   padding-right: 15px;
-  color: #eceff4;
+  color: var(--foreground-color);
 }
 
 .bar{
-  background-color: #3b4252;
+  background-color: var(--background-color);
 }
 
 .link,
 .link:hover,
 .link:visited,
 .link:active {
-  color: #eceff4;
+  color: var(--foreground-color);
   text-decoration: none;
   height: fit;
 }
@@ -113,7 +120,7 @@ code {
 }
 
 .form--container{
-  background-color: #3b4252;
+  background-color: var(--color-background);
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -122,7 +129,7 @@ code {
 
 .sidebar--header{
   display: flex;
-  background-color: #3b4252;
+  background-color: var(--color-background);
   height: inherit;
 }
 
@@ -161,4 +168,18 @@ code {
 
 .navbar{
   padding: unset !important;
+}
+
+#root > div > form > div.btn-group > button.btn.btn-primary{
+  background-color: var(--button-background);
+  color: var(--foreground-color)
+}
+
+#root > div > form > div.btn-group > button.btn.btn-danger{
+  background-color: var(--alert-color);
+  color: var(--foreground-color);
+}
+
+.navbar {
+  background-color: var(--background-color);
 }

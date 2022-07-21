@@ -84,21 +84,24 @@
   "themes": [
     {
       "id": 1,
-      "primary": "#00000",
-      "secondary": "#000000",
-      "alert": "#00000"
+      "primary": "#212529",
+      "secondary": "#ffffff",
+      "tertiary": "#0d6efd",
+      "alert": "#8a3237"
     },
     {
       "id": 2,
-      "primary": "#00000",
-      "secondary": "#000000",
-      "alert": "#00000"
+      "primary": "#689d6a",
+      "secondary": "#e9ecef",
+      "tertiary": "#458588",
+      "alert": "#fb4934"
     },
     {
       "id": 3,
-      "primary": "#00000",
-      "secondary": "#000000",
-      "alert": "#00000"
+      "primary": "#073642",
+      "secondary": "#fdf6e3",
+      "tertiary": "#268bd2",
+      "alert": "#dc322f"
     }
   ]
 }
