@@ -3,11 +3,11 @@ import React, { useState, createContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //COMPONENT IMPORTS
 import TitleBar from './TitleBar';
-import Table from './Table';
 
 //ROUTING IMPORTS
 import AddUsers from '../pages/NewUser'
 import EditUser from '../pages/EditUser'
+import TablePage from '../pages/TablePage'
 
 //THEME API IMPORT
 import { getTheme } from '../api/theme'
@@ -37,7 +37,7 @@ export function Page() {
       <pageContext.Provider value={{ forceUpdate, query, setQuery }}>
         <TitleBar />
         <Routes>
-          <Route exact path='/' element={<Table />} />
+          <Route exact path='/' element={<TablePage />} />
           <Route exact path='addUsers' element={<AddUsers />} />
           <Route exact path='edit/:id' element={<EditUser />} />
         </Routes>

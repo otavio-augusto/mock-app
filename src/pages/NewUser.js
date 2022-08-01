@@ -45,6 +45,7 @@ export function AddUsers() {
     setUserID()
     async function setUserID() {
       const result = await getUser('users')
+      console.log(result)
       document.getElementById('cadastroID').value = result.length + 1
     };
   }, [isReadyToUpdate]); // <- Condições para atualização

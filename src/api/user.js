@@ -8,6 +8,12 @@ export async function getUser(query) {
   return response;
 }
 
+export async function getAllUsers() {
+  //const request = await fetch(`http://${host}:${port}/${query}`);
+  const request = await fetch(`http://localhost:3001/users/`);
+  return request;
+}
+
 export async function setUser(json) {
   var headers = new Headers();
   headers.append("Content-Type", "application/json");
