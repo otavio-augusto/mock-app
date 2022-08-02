@@ -1,33 +1,27 @@
 import '../index.css'
-import Table from '../components/Table'
-import React, { useState, useEffect, createContext, useCallback } from 'react';
+import Table from '../components/Table.tsx'
+import React, { useState, useEffect, useCallback } from 'react';
 // API IMPORTS
 import { getAllUsers } from '../api/user'
 
-const tableContext = createContext()
-function TablePage() {
+export const TablePage: React.FC<> = () => {
   const [userData, setUserData] = useState({})
 
-  const updateUserData = useCallback(() => {
-    getAllUsers().then(async (res) => {
-      const response = await res.json()
-      setUserData(response)
-    })
-  }, [getAllUsers]);
+  const updateData = useCallback((data) => {
+    setUserData(data)
+  }, []);
 
   useEffect(() => {
-    console.log("USE EFFECT ACTIVATED")
-    updateUserData()
-  }, [updateUserData()]);
+    const getUserData = async () => {
+      const response = await getAllUsers()
+      updateData(await response.json())
+    }
+    getUserData()
+  }, [updateData]);
 
-
-  const element =
-    <tableContext.Provider value={userData}>
-      <Table />
-    </tableContext.Provider>
-
-  return element
+  return (
+    <Table users={userData} />
+  )
 }
 
 export default TablePage
-export { tableContext }
