@@ -27,7 +27,6 @@ export const TablePage: React.FC = () => {
 
   const updateData = useCallback((data: UserTableProps) => {
     setUserData(data)
-    setIsReadyToUpdate(!isReadyToUpdate)
     forceUpdate()
   }, []);
 
@@ -39,7 +38,7 @@ export const TablePage: React.FC = () => {
       updateData(tableProps)
     }
     getUserData()
-  }, []);
+  }, [query, isReadyToUpdate]);
 
   return (
     <>

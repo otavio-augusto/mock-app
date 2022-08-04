@@ -20,7 +20,6 @@ export function AddUsers() {
     setUserID()
     async function setUserID(): Promise<void> {
       const result = await getAllUsers();
-      console.log((await getAllUsers()).length);
       (document.getElementById('cadastroID') as HTMLInputElement).value = result.length + 1;
     };
   }, [isReadyToUpdate]); // <- Condições para atualização
