@@ -2,16 +2,15 @@ const host = "localhost"
 const port = 3001
 
 export async function getUser(query) {
-  const request = await fetch(`http://${host}:${port}/${query}`);
-  //const request = await fetch(`http://localhost:3001/users/`);
-  const response = await request.json();
-  return response;
+  console.log(query)
+  const request = await fetch(`http://localhost:3001/${query}`);
+  return await request.json()
 }
 
 export async function getAllUsers() {
   //const request = await fetch(`http://${host}:${port}/${query}`);
   const request = await fetch(`http://localhost:3001/users/`);
-  return request;
+  return await request.json()
 }
 
 export async function setUser(json) {
@@ -26,16 +25,16 @@ export async function setUser(json) {
   };
 
   await fetch(`http://localhost:3001/users/`, requestOptions)
-  return true;
 }
 
 export async function removeUser(id) {
+  console.log("CALLED REMOVE")
   var requestOptions = {
     method: 'DELETE',
     redirect: 'follow'
   };
 
-  await fetch(`http://${host}:${port}/users/${id}`, requestOptions)
+  await fetch(`http://localhost:3001/users/${id}`, requestOptions)
   return true;
 }
 

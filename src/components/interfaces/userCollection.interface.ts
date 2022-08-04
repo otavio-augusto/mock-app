@@ -6,4 +6,5 @@ export interface IUserCollection {
 
 export interface UserTableProps {
     users: IUserCollection[];
+
 }

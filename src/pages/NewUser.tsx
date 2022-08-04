@@ -1,24 +1,31 @@
 import '../index.css'
-import React, { useEffect, useState } from 'react';
-
-//BOOTSTRAP
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 
-import { getUser, setUser } from '../api/user'
+import { getAllUsers, setUser } from '../api/user'
 
 export function AddUsers() {
-  const [isReadyToUpdate, setIsReadyToUpdate] = useState(false);
+  const [isReadyToUpdate, setIsReadyToUpdate] = useState<boolean>(false);
   const forceUpdate = () => setIsReadyToUpdate(!isReadyToUpdate)
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault()
     addNewUser()
     forceUpdate()
   }
 
-  const element =
+  useEffect(() => {
+    setUserID()
+    async function setUserID(): Promise<void> {
+      const result = await getAllUsers();
+      console.log((await getAllUsers()).length);
+      (document.getElementById('cadastroID') as HTMLInputElement).value = result.length + 1;
+    };
+  }, [isReadyToUpdate]); // <- Condições para atualização
+
+  return (
     <div className='cadastro--div'>
       <Form className='cadastro--form' onSubmit={handleSubmit}>
         <h4 className='cadastro--title'>Cadastro de Clientes</h4>
@@ -40,28 +47,18 @@ export function AddUsers() {
         </ButtonGroup>
       </Form>
     </div>
-
-  useEffect(() => {
-    setUserID()
-    async function setUserID() {
-      const result = await getUser('users')
-      console.log(result)
-      document.getElementById('cadastroID').value = result.length + 1
-    };
-  }, [isReadyToUpdate]); // <- Condições para atualização
-
-  return element
+  )
 }
 
 function clearFields() {
-  document.getElementById('cadastroNome').value = ""
-  document.getElementById('cadastroCPF').value = ""
+  (document.getElementById('cadastroNome') as HTMLInputElement).value = "";
+  (document.getElementById('cadastroCPF') as HTMLInputElement).value = "";
 }
 
 async function addNewUser() {
-  const newUserId = document.getElementById('cadastroID').value
-  const newUserName = document.getElementById('cadastroNome').value
-  const newUserCPF = document.getElementById('cadastroCPF').value
+  const newUserId = (document.getElementById('cadastroID') as HTMLInputElement).value
+  const newUserName = (document.getElementById('cadastroNome') as HTMLInputElement).value
+  const newUserCPF = (document.getElementById('cadastroCPF') as HTMLInputElement).value
   const content = JSON.stringify({
     "id": newUserId,
     "name": newUserName,
@@ -69,6 +66,7 @@ async function addNewUser() {
   });
   await setUser(content)
   alert('Novo usuário cadastrado!')
+  clearFields()
 }
 
 export default AddUsers

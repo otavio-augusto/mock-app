@@ -1,10 +1,4 @@
 import '../index.css'
-import React from 'react';
-
-//COMPONENT IMPORTS
-import Search from './Search'
-
-//BOOTSTRAP IMPORTS
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -35,7 +29,6 @@ function TitleBar() {
               </Button>
             </Link>
           </Nav>
-          <Search />
         </Navbar.Collapse>
       </Container>
     </Navbar >

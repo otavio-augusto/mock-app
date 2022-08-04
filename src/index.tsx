@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //COMPONENT IMPORTS
 import Page from './components/Page'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLInputElement);
 root.render(
   <React.StrictMode>
     <Page />

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
 import { getUser, patchUser } from '../api/user'
@@ -8,13 +8,13 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 
 function EditUser() {
-  const { id } = useParams()
+  const { id } = useParams<Record<string, string | undefined>>()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    const userId = document.getElementById('editID').value
-    const userName = document.getElementById('editName').value
-    const userCPF = document.getElementById('editCPF').value
+    const userId = (document.getElementById('editID') as HTMLInputElement).value
+    const userName = (document.getElementById('editName') as HTMLInputElement).value
+    const userCPF = (document.getElementById('editCPF') as HTMLInputElement).value
     const content = JSON.stringify({
       "id": userId,
       "name": userName,
@@ -24,11 +24,11 @@ function EditUser() {
     alert("Usuário Atualizado!")
   }
 
-  const getOldData = useCallback(async (id) => {
-    const { id: newId, name: newName, cpf: newCPF } = await getUser(`users/${id}`)
-    document.getElementById('editID').value = newId
-    document.getElementById('editName').value = newName
-    document.getElementById('editCPF').value = newCPF
+  const getOldData = useCallback(async (id: any) => {
+    const { id: newId, name: newName, cpf: newCPF } = (await getUser(`users/${id}`))[0];
+    (document.getElementById('editID') as HTMLInputElement).value = newId;
+    (document.getElementById('editName') as HTMLInputElement).value = newName;
+    (document.getElementById('editCPF') as HTMLInputElement).value = newCPF;
     return [newId, newName, newCPF]
   }, []);
 
@@ -62,8 +62,8 @@ function EditUser() {
 }
 
 function clearFields() {
-  document.getElementById('editName').value = ""
-  document.getElementById('editCPF').value = ""
+  (document.getElementById('editName') as HTMLInputElement).value = "";
+  (document.getElementById('editCPF') as HTMLInputElement).value = "";
 }
 
 export default EditUser
