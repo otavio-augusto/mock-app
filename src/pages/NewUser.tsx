@@ -10,9 +10,9 @@ export function AddUsers() {
   const [isReadyToUpdate, setIsReadyToUpdate] = useState<boolean>(false);
   const forceUpdate = () => setIsReadyToUpdate(!isReadyToUpdate)
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault()
-    addNewUser()
+    await addNewUser()
     forceUpdate()
   }
 
