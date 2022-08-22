@@ -8,6 +8,7 @@ import { removeUser } from '../api/user'
 export function Table(props: { data: UserTableProps; updateTable: () => void; }) {
   const headers = getTableHeaders(props.data.users);
   const content = getTableRows(props.data.users, props.updateTable);
+  console.log(content)
 
   useEffect(() => {
     console.log("TABLE UPDATE")
@@ -49,13 +50,21 @@ function getTableRows(data: IUserCollection[], forceUpdate: () => void) {
   }
 
   let tableRows: JSX.Element[] = [];
-  for (let count = 0; count < data.length; count++) {
-    const link = "/edit/" + data[count].id;
-    tableRows.push(
-      <tr key={data[count].id} id={data[count].id.toString()}>
-        <th className='table--colID'> {data[count].id}   </th>
-        <th className='table--colNAME'> {data[count].name} </th>
-        <th className='table--colCPF'> {data[count].cpf}  </th>
+
+  if (Array.isArray(data))
+    data.forEach((item): void => {
+      tableRows.push(createRow(item))
+    });
+  else
+    return createRow(data)
+
+  function createRow(user: IUserCollection) {
+    const link = "/app/edit/" + user.id;
+    return (
+      <tr key={user.id} id={user.id.toString()}>
+        <th className='table--colID'>   {user.id}   </th>
+        <th className='table--colNAME'> {user.name} </th>
+        <th className='table--colCPF'>  {user.cpf}  </th>
         <th className='table--action'>
           <Link to={link}>
             <i className="fa fa-pencil-square-o"></i>
@@ -65,8 +74,8 @@ function getTableRows(data: IUserCollection[], forceUpdate: () => void) {
           <i className="fa fa-trash"></i>
         </th>
       </tr>
-    );
-    //console.log(tableRows[count])
+    )
   }
+
   return tableRows;
 }

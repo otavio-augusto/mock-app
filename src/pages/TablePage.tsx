@@ -4,6 +4,7 @@ import { getUser } from '../api/user'
 import { UserTableProps } from '../components/interfaces/userCollection.interface';
 import { Table } from '../components/Table'
 import { Search } from '../components/Search';
+import TitleBar from '../components/TitleBar';
 
 export const TablePage: React.FC = () => {
   const initialId = 1
@@ -27,6 +28,7 @@ export const TablePage: React.FC = () => {
 
   const updateData = useCallback((data: UserTableProps) => {
     setUserData(data)
+    console.log("TABLE: DATA CALLBACK")
     forceUpdate()
   }, []);
 
@@ -34,7 +36,6 @@ export const TablePage: React.FC = () => {
     const getUserData = async () => {
       const response = await getUser(query)
       tableProps.users = response
-      console.log(response)
       updateData(tableProps)
     }
     getUserData()
@@ -42,6 +43,7 @@ export const TablePage: React.FC = () => {
 
   return (
     <>
+      <TitleBar />
       <Search setQuery={setQuery} updateTable={forceUpdate} />
       <Table data={userData} updateTable={forceUpdate} />
     </>

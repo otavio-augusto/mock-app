@@ -1,15 +1,17 @@
 const host = "localhost"
-const port = 3001
+const port = 3000
 
 export async function getUser(query) {
-  console.log(query)
-  const request = await fetch(`http://localhost:3001/${query}`);
+  const request = await fetch(`http://localhost:${port}/api/${query}`, {
+    credentials: 'include'
+  });
   return await request.json()
 }
 
 export async function getAllUsers() {
-  //const request = await fetch(`http://${host}:${port}/${query}`);
-  const request = await fetch(`http://localhost:3001/users/`);
+  const request = await fetch(`http://localhost:${port}/api/users/`, {
+    credentials: 'include'
+  });
   return await request.json()
 }
 
@@ -21,21 +23,22 @@ export async function setUser(json) {
     method: 'PUT',
     headers: headers,
     body: json,
+    credentials: 'include',
     redirect: 'follow'
   };
 
-  await fetch(`http://localhost:3001/users/`, requestOptions)
+  await fetch(`http://localhost:${port}/api/users/`, requestOptions)
 }
 
 export async function removeUser(id) {
   console.log("CALLED REMOVE")
   var requestOptions = {
     method: 'DELETE',
+    credentials: 'include',
     redirect: 'follow'
   };
 
-  await fetch(`http://localhost:3001/users/${id}`, requestOptions)
-  return true;
+  return await fetch(`http://localhost:${port}/api/users/${id}`, requestOptions)
 }
 
 export async function patchUser(json, id) {
@@ -46,10 +49,11 @@ export async function patchUser(json, id) {
     method: 'POST',
     headers: headers,
     body: json,
+    credentials: 'include',
     redirect: 'follow'
   };
   try {
-    await fetch(`http://${host}:${port}/users`, requestOptions);
+    await fetch(`http://${host}:${port}/api/users`, requestOptions);
   } catch (error) {
     return console.log('error', error);
   }

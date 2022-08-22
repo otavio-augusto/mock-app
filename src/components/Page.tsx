@@ -2,12 +2,12 @@
 import { useState, createContext, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //COMPONENT IMPORTS
-import TitleBar from './TitleBar';
 
 //ROUTING IMPORTS
 import AddUsers from '../pages/NewUser'
 import EditUser from '../pages/EditUser'
 import { TablePage } from '../pages/TablePage'
+import { LoginPage } from '../pages/LoginPage'
 
 //THEME API IMPORT
 import { getTheme } from '../api/theme'
@@ -52,7 +52,6 @@ export function Page() {
   return (
     <BrowserRouter>
       <contextProvider.Provider value={pageContext} >
-        <TitleBar />
         <Routes>
           {routes}
         </Routes>
@@ -64,9 +63,10 @@ export function Page() {
 function getRoutes() {
   return (
     <>
-      <Route path='/' element={<TablePage />} />
-      <Route path='addUsers' element={<AddUsers />} />
-      <Route path='edit/:id' element={<EditUser />} />
+      <Route path='/' element={<LoginPage />} />
+      <Route path='/app/table' element={<TablePage />} />
+      <Route path='/app/addUsers' element={<AddUsers />} />
+      <Route path='/app/edit/:id' element={<EditUser />} />
     </>
   )
 }
