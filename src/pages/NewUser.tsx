@@ -27,11 +27,11 @@ export function AddUsers() {
             <Form.Control type="text" id='cadastroCPF' />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>CPF</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control type="text" id='cadastroEmail' />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>CPF</Form.Label>
+            <Form.Label>Senha</Form.Label>
             <Form.Control type="password" id='cadastroSenha' />
           </Form.Group>
           <ButtonGroup>
