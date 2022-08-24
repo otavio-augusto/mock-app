@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 //COMPONENT IMPORTS
 
 //ROUTING IMPORTS
-import AddUsers from '../pages/NewUser'
 import EditUser from '../pages/EditUser'
 import { TablePage } from '../pages/TablePage'
 import { LoginPage } from '../pages/LoginPage'
@@ -13,6 +12,8 @@ import { LoginPage } from '../pages/LoginPage'
 import { getTheme } from '../api/theme'
 import { IEnviroment } from '../interfaces/envCollection.interface';
 import { IPageContext } from '../interfaces/pageContext.interface';
+import { AddUsers } from '../pages/AddUsers';
+import { SignupPage } from '../pages/SignupPage';
 
 const getEnviromentVariables = (): IEnviroment => {
   return {
@@ -63,7 +64,8 @@ export function Page() {
 function getRoutes() {
   return (
     <>
-      <Route path='/' element={<LoginPage />} />
+      <Route path='/home' element={<LoginPage />} />
+      <Route path='/signup' element={<SignupPage />} />
       <Route path='/app/table' element={<TablePage />} />
       <Route path='/app/addUsers' element={<AddUsers />} />
       <Route path='/app/edit/:id' element={<EditUser />} />

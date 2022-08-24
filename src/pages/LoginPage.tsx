@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAuth } from '../api/auth'
 export const LoginPage = () => {
     const navigate = useNavigate();
@@ -43,6 +43,11 @@ export const LoginPage = () => {
                     <Button variant="primary" type="submit">Entrar</Button>
                     <Button variant="danger" onClick={clearFields}>Limpar</Button>
                 </ButtonGroup>
+                <Link to='/app/addUsers'>
+                    <Button variant="dark">
+                        Novo Usuário
+                    </Button>
+                </Link>
             </Form>
         </div>
     )

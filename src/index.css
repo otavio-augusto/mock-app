@@ -19,17 +19,16 @@ html, body, #root, .App {
   background-color: currentColor;
 }
 
-.cadastro--div, .edit--div{
+.cadastro--div, .form--div, .edit--div{
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-around;
   align-items: center;
-
 }
 
-.cadastro--form, .edit--form{
+.form--form, .edit--form{
   padding: 20px;
   padding-bottom: 35px !important;
   background-color: var(--background-color);
@@ -40,7 +39,7 @@ html, body, #root, .App {
   padding-right: 35px !important;
 }
 
-.cadastro--title, .edit--title, .form-label{
+.form--title, .edit--title, .form-label{
   color: var(--foreground-color);
 }
 
@@ -146,7 +145,7 @@ code {
   padding-left: 15px;
 }
 
-.cadastro--form, .edit--form{
+.form--form, .edit--form{
   padding:15px;
   display: flex;
   flex-direction: column;
@@ -157,7 +156,7 @@ code {
 }
 
 
-.cadastro--title, .edit--title{
+.form--title, .edit--title{
   padding: 10px;
 }
 
