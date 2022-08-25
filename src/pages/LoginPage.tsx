@@ -25,6 +25,10 @@ export const LoginPage = () => {
                     break;
                 case 401:
                     alert("Login ou Senha incorretos, tente novamente!")
+                    break;
+                default:
+                    alert("Ocorreu um erro, tente novamente mais tarde!")
+                    break;
             }
         } catch (err) {
             alert("ERROR!")
