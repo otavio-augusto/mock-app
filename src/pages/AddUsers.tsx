@@ -1,6 +1,7 @@
 import '../index.css'
 import { setUser } from '../api/user';
 import { UserForm } from './UserForm';
+import TitleBar from '../components/TitleBar';
 
 export class AddUsers extends UserForm {
     handleSubmit(e: { preventDefault: () => void; }): void {
@@ -9,7 +10,14 @@ export class AddUsers extends UserForm {
     }
 
     render(): JSX.Element {
-        return super.render()
+        const parentElement = super.render()
+        return (
+            <>
+                <TitleBar />
+                <h5 className='page--title'>Cadastro de Clientes</h5>
+                {parentElement}
+            </>
+        )
     }
 
     clearFields(): void {

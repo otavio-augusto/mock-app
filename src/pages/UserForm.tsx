@@ -20,7 +20,6 @@ export class UserForm extends React.Component {
         return (
             <div className='form--div' >
                 <Form className='form--form' onSubmit={this.handleSubmit}>
-                    <h4 className='form--title'>Cadastro de Clientes</h4>
                     <Form.Group className="mb-3">
                         <Form.Label>Nome</Form.Label>
                         <Form.Control type="text" id='formNome' />

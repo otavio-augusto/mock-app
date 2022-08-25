@@ -28,7 +28,7 @@ html, body, #root, .App {
   align-items: center;
 }
 
-.form--form, .edit--form{
+.form--form, .edit--form, .cadastro--form{
   padding: 20px;
   padding-bottom: 35px !important;
   background-color: var(--background-color);
@@ -39,8 +39,15 @@ html, body, #root, .App {
   padding-right: 35px !important;
 }
 
-.form--title, .edit--title, .form-label{
+.page--title, .edit--title, .form-label, .cadastro--title{
+  text-align: center;
+  padding-bottom: 10px;
   color: var(--foreground-color);
+  background-color: var(--background-color);
+}
+
+.page--title{
+  padding-top: 10px;
 }
 
 body {

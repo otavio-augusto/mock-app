@@ -58,3 +58,19 @@ export async function patchUser(json, id) {
     return console.log('error', error);
   }
 }
+
+export async function unsafeSetUser(json) {
+  var headers = new Headers();
+  headers.append("Content-Type", "application/json");
+
+  var requestOptions = {
+    method: 'POST',
+    headers: headers,
+    body: json,
+    credentials: 'include',
+    redirect: 'follow'
+  };
+
+  console.log("SEND: FETCH")
+  await fetch(`http://localhost:${port}/signup`, requestOptions)
+}

@@ -17,10 +17,15 @@ export const LoginPage = () => {
         const username = (document.getElementById('loginEmail') as HTMLInputElement).value;
         const password = (document.getElementById('loginSenha') as HTMLInputElement).value;
         try {
-            console.log(await getAuth(username, password))
-            alert("LOGIN TERMINADO")
-            sessionStorage.setItem('username', username)
-            navigate('/app/table');
+            const status = (await getAuth(username, password)).status
+            switch (status) {
+                case 200:
+                    sessionStorage.setItem('username', username)
+                    navigate('/app/table');
+                    break;
+                case 401:
+                    alert("Login ou Senha incorretos, tente novamente!")
+            }
         } catch (err) {
             alert("ERROR!")
             console.log(err)
@@ -43,7 +48,7 @@ export const LoginPage = () => {
                     <Button variant="primary" type="submit">Entrar</Button>
                     <Button variant="danger" onClick={clearFields}>Limpar</Button>
                 </ButtonGroup>
-                <Link to='/app/addUsers'>
+                <Link to='/signup'>
                     <Button variant="dark">
                         Novo Usuário
                     </Button>

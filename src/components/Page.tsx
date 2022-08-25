@@ -64,7 +64,7 @@ export function Page() {
 function getRoutes() {
   return (
     <>
-      <Route path='/home' element={<LoginPage />} />
+      <Route path='/' element={<LoginPage />} />
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/app/table' element={<TablePage />} />
       <Route path='/app/addUsers' element={<AddUsers />} />
