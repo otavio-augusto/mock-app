@@ -12,9 +12,22 @@ export const getAuth = async (username, password) => {
 
 export const clearAuth = async () => {
   const options = {
-    method: 'GET',
+    method: 'get',
     credentials: 'include'
   }
   const response = await fetch('http://localhost:3000/login/clear', options)
-  return response
+  return await response.json()
 };
+
+export const validateAuth = async (expectedLevel) => {
+  const options = {
+    method: 'GET',
+    credentials: 'include'
+  }
+
+  const response = await fetch('http://localhost:3000/validate', options)
+  const result = await response.json()
+  if (expectedLevel == result.authLevel)
+    return true
+  return false
+}

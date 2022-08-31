@@ -14,7 +14,8 @@ export class SignupPage extends UserForm {
                 "name": newUserName,
                 "cpf": newUserCPF,
                 "email": newUserEmail,
-                "password": newUserPassword
+                "password": newUserPassword,
+                "authType": "user"
             });
             unsafeSetUser(content)
             alert('Novo usuário cadastrado!');

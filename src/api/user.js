@@ -26,7 +26,7 @@ export async function setUser(json) {
     credentials: 'include',
     redirect: 'follow'
   };
-
+  console.log(json)
   await fetch(`http://localhost:${port}/api/users/`, requestOptions)
 }
 

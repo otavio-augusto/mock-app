@@ -3,8 +3,9 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Form from 'react-bootstrap/Form';
 import React from 'react';
+import { iUserFormState } from '../interfaces/iUserFormState.interface';
 
-export class UserForm extends React.Component {
+export class UserForm extends React.Component<{}, iUserFormState> {
     handleSubmit(e: { preventDefault: () => void; }) {
         e.preventDefault()
     }
