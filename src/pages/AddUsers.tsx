@@ -10,12 +10,42 @@ export class AddUsers extends UserForm {
         this.state = {
             visible: false
         };
+    }
+
+    componentDidMount(): void {
         this.verifyAuth()
     }
 
     handleSubmit(e: { preventDefault: () => void; }): void {
         super.handleSubmit(e)
-        this.addNewUser()
+
+        const addNewUser = async () => {
+            const newUserName = (document.getElementById('formNome') as HTMLInputElement).value
+            const newUserCPF = (document.getElementById('formCPF') as HTMLInputElement).value
+            const newUserEmail = (document.getElementById('formEmail') as HTMLInputElement).value
+            const newUserPassword = (document.getElementById('formSenha') as HTMLInputElement).value
+            let newUserAuth
+            switch ((document.getElementById('isAdmin') as HTMLInputElement).checked) {
+                case true:
+                    newUserAuth = 'admin'
+                    break;
+                default:
+                    newUserAuth = 'user'
+                    break;
+            }
+
+            const content = JSON.stringify({
+                "name": newUserName,
+                "cpf": newUserCPF,
+                "email": newUserEmail,
+                "password": newUserPassword,
+                "authType": newUserAuth
+            });
+            await setUser(content)
+            alert('Novo usuário cadastrado!')
+            super.clearFields()
+        }
+        addNewUser()
     }
 
     render(): JSX.Element {
@@ -45,21 +75,5 @@ export class AddUsers extends UserForm {
         this.setState({ visible: result })
     }
 
-    async addNewUser() {
-        const newUserName = (document.getElementById('formNome') as HTMLInputElement).value
-        const newUserCPF = (document.getElementById('formCPF') as HTMLInputElement).value
-        const newUserEmail = (document.getElementById('formEmail') as HTMLInputElement).value
-        const newUserPassword = (document.getElementById('formSenha') as HTMLInputElement).value
-        const content = JSON.stringify({
-            "name": newUserName,
-            "cpf": newUserCPF,
-            "email": newUserEmail,
-            "password": newUserPassword,
-            "authType": "user"
-        });
-        await setUser(content)
-        alert('Novo usuário cadastrado!')
-        super.clearFields()
-    }
 
 }

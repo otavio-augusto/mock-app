@@ -10,12 +10,21 @@ export class SignupPage extends UserForm {
             const newUserCPF = (document.getElementById('formCPF') as HTMLInputElement).value
             const newUserEmail = (document.getElementById('formEmail') as HTMLInputElement).value
             const newUserPassword = (document.getElementById('formSenha') as HTMLInputElement).value
+            let newUserAuth
+            switch ((document.getElementById('isAdmin') as HTMLInputElement).checked) {
+                case true:
+                    newUserAuth = 'admin'
+                    break;
+                default:
+                    newUserAuth = 'user'
+                    break;
+            }
             const content = JSON.stringify({
                 "name": newUserName,
                 "cpf": newUserCPF,
                 "email": newUserEmail,
                 "password": newUserPassword,
-                "authType": "user"
+                "authType": newUserAuth
             });
             unsafeSetUser(content)
             alert('Novo usuário cadastrado!');

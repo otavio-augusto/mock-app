@@ -37,6 +37,7 @@ export class UserForm extends React.Component<{}, iUserFormState> {
                         <Form.Label>Senha</Form.Label>
                         <Form.Control type="password" id='formSenha' />
                     </Form.Group>
+                    <Form.Check inline type='switch' label="Administrador" id={`isAdmin`} className='cadastro--perms' />
                     <ButtonGroup>
                         <Button variant="primary" type="submit">Cadastrar</Button>
                         <Button variant="danger" onClick={this.clearFields}>Limpar</Button>

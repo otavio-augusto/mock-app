@@ -50,6 +50,10 @@ html, body, #root, .App {
   padding-top: 10px;
 }
 
+.warning{
+  background-color: var(--alert-color);
+}
+
 body {
   margin: 0;
   /*
@@ -188,4 +192,9 @@ code {
 
 .navbar {
   background-color: var(--background-color);
+}
+
+.cadastro--perms{
+  color: var(--foreground-color);
+  padding-bottom: 20px;
 }
